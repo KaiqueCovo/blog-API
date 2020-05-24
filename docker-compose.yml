@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    container_name: crm-blog-api
+    volumes:
+        - "./volumes/data/mysql:/var/lib/mysql"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
+    ports:
+        - "33062:3306"
