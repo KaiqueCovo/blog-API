@@ -4,7 +4,7 @@
   "port": 33062,
   "username": "root",
   "password": "root",
-  "database": "crm-blog",
+  "database": "blog-api",
   "migrations": [
     "./src/database/migrations/*.ts"
   ],
