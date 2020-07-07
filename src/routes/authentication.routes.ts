@@ -6,13 +6,17 @@ import CreateAuthenticationService from '../services/CreateAuthenticationService
 const routes = Router()
 
 routes.post('/', async (req, res) => {
-  const { email, password } = req.body
+  try {
+    const { email, password } = req.body
 
-  const createAuth = new CreateAuthenticationService()
+    const createAuth = new CreateAuthenticationService()
 
-  const auth = await createAuth.execute({ email, password })
+    const auth = await createAuth.execute({ email, password })
 
-  return res.json(auth)
+    return res.json(auth)
+  } catch (error) {
+    return res.status(400).json({ message: error.message })
+  }
 })
 
 export default routes
